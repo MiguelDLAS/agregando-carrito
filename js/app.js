@@ -1,7 +1,7 @@
 //
 const carrito = document.querySelector('#carrito');
 const listaCursos = document.querySelector('#lista-cursos');
-const contenedorCarrito = document.querySelector('lista-carrito tbody');
+const contenedorCarrito = document.querySelector('#lista-carrito tbody');
 const vaciarCarritoBtn = document.querySelector('#vaciar-carrito');
 
 let listadoCarrito = [];
@@ -26,9 +26,33 @@ const agregarCurso =(e) => {
 const agregarCarrito = curso => {
     listadoCarrito = [...listadoCarrito, curso]
     console.log(listadoCarrito);
+    generaHTML();
 
 }
 
+const generaHTML = () => {
+    vaciarCarrito();
+    listadoCarrito.forEach(curso => {
+        const row = document.createElement('tr');
+        const cursoHtml = `
+        <td>
+            ${curso.nombre}
+        </td>
+        <td>
+            ${curso.precio}
+        </td>
+        <td>
+            ${curso.cantidad}
+        </td>
+        `;
+        row.innerHTML = cursoHtml;
+        contenedorCarrito.appendChild(row);
+    });
+}
+
+const vaciarCarrito = () => {
+
+}
 
 const cargaEventListener = () => {
     //Agregar funcion de cursos al carrito
