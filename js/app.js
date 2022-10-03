@@ -15,6 +15,7 @@ const agregarCurso =(e) => {
             imagen: curso.querySelector('img').src, 
             nombre: curso.querySelector('h4').textContent,
             precio: curso.querySelector('p.precio').textContent,
+            id: curso.querySelector('.agregar-carrito').getAttribute('data-id'),
             cantidad: 1
 
         }
