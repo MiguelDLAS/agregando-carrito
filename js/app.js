@@ -98,7 +98,7 @@ const cargaEventListener = () => {
     const carritoInStorage = localStorage.getItem('carrito')
     if(carritoInStorage) {
         listadoCarrito = JSON.parse(carritoInStorage);
-
+        generaHTML();
 
     }
     }
